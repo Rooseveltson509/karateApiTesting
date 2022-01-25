@@ -1,10 +1,10 @@
-Feature: api test
+@non-reg
+Feature: PUT PAI Request test
 
-  Background:
-    * url 'https://jsonplaceholder.typicode.com'
-
-  Scenario: obtenir tous les utilisateurs puis le premier à l'aide de son id (fail test)
-    Given path 'users'
-    When method get
+  @UserFail
+  Scenario: PUT API demo 1
+    Given url 'https://reqres.in/api/users/2'
+    And request {"name": "morpheus", "job": "zion resident" }
+    When method PUT
     # Status attendu 200 mais on veut un test fail pour les rapports
-    Then status 500
+    Then status 400

@@ -29,10 +29,11 @@ class RunAllTest {
     public static void makeCucumberReport() {
         File reportOutputDirectory = new File("target");
         List<String> jsonFiles = new ArrayList<>();
-        jsonFiles.add("C:\\Karate\\Projet\\karatedemo\\target\\surefire-reports\\ui.web.zenityIntranet.json");
-        jsonFiles.add("C:\\Karate\\Projet\\karatedemo\\target\\surefire-reports\\ui.mobile.android.zenityIntranetAndroid.json");
-        jsonFiles.add("C:\\Karate\\Projet\\karatedemo\\target\\surefire-reports\\api.users.json");
-        jsonFiles.add("C:\\Karate\\Projet\\karatedemo\\target\\surefire-reports\\api.usersFail.json");
+        jsonFiles.add("C:\\Users\\roose\\karate_demo\\target\\surefire-reports\\ui.web.ConfigDemo1.json");
+        jsonFiles.add("C:\\Users\\roose\\karate_demo\\target\\surefire-reports\\ui.web.FirstTest.json");
+        jsonFiles.add("C:\\Users\\roose\\karate_demo\\target\\surefire-reports\\ui.web.GetTestApi.json");
+        jsonFiles.add("C:\\Users\\roose\\karate_demo\\target\\surefire-reports\\api.users.json");
+        jsonFiles.add("C:\\Users\\roose\\karate_demo\\target\\surefire-reports\\api.usersFail.json");
 
         String projectName = "Karate demo";
         Configuration configuration = new Configuration(reportOutputDirectory, projectName);

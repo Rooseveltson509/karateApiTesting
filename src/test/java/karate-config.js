@@ -1,36 +1,30 @@
 function fn() {
-  var env = karate.env;
+  var env = karate.env
   if (!env) {
-    env = 'test';
-  }
-  var config = {
-    web: {
-      navigateur: {type: 'chrome'},
-      zenityIntranetUrl: 'https://intranet-test.zenity-test.fr',
-      identifiant: 'tgalarneau@zenity.fr',
-      motdepasse: 'Motdepasse1',
-      nom: 'Galarneau'
-    },
-    mobile: {
-      driverCaps: {
-        "platformName": "Android",
-        "platformVersion": "9",
-        "automationName": "UiAutomator2",
-        "deviceName": "Android Emulator",
-        "browserName": "Chrome",
-        "uiautomator2ServerLaunchTimeout": 30000,
-        "uiautomator2ServerInstallTimeout": 30000,
-        "adbExecTimeout": 20000,
-        "avd": "Nexus_S_API_28"
-      }
+      env = 'test';
     }
-  }
-  if (env == 'prod') {
-    config.web.zenityIntranetUrl = 'https://intranet.zenity.fr';
-    config.web.identifiant = 'identifiant_prod';
-    config.web.motdepasse = 'mdp_prod';
-    config.web.nom = 'nom_prod';
-  }
+
+      var config = {
+        web: {
+          navigateur: {type: 'chrome'},
+          baseUrl: 'https://reqres.in/api',
+          name: 'Rooseveltson'
+        }
+      }
+
+    if (env == 'qa') {
+        config.baseUrl = "https://reqres.in/api/qa"
+    }
+    else if (env == 'dev') {
+        config.baseUrl = "https://reqres.in/api/dev"
+    }
+    else {
+        config.baseUrl = "https://reqres.in/api"
+    }
+  karate.configure('connectTimeout', 5000);
+  karate.configure('readTimeout', 5000);
+
+  karate.log('The value of env is : ', env)
   karate.configure('report', { showLog: true, showAllSteps: false } );
   karate.log('environnement utilisé pour ce test :', env);
   return config;
